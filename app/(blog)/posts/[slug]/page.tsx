@@ -15,6 +15,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { postQuery, settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 type Props = {
   params: { slug: string };
@@ -107,6 +108,7 @@ export default async function PostPage({ params }: Props) {
           <MoreStories skip={post._id} limit={2} />
         </Suspense>
       </aside>
+      <GoogleAnalytics gaId={"G-5N2DQYCYMJ"} />
     </div>
   );
 }

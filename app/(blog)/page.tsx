@@ -12,6 +12,8 @@ import type { HeroQueryResult } from "@/sanity.types";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { heroQuery, settingsQuery } from "@/sanity/lib/queries";
+import CustomPortableText from "./custom-portable";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -24,10 +26,14 @@ function Intro(props: { title: string | null | undefined; description: any }) {
         {title || demo.title}
       </h1>
       <h2 className="text-pretty mt-5 text-center text-lg lg:pl-8 lg:text-left">
-        <PortableText
+         <PortableText
           className="prose-lg"
           value={description?.length ? description : demo.description}
         />
+        {/* <CustomPortableText
+          className="prose-lg"
+          value={description?.length ? description : demo.description}
+        />*/}
       </h2>
     </section>
   );
@@ -106,6 +112,7 @@ export default async function Page() {
           </Suspense>
         </aside>
       )}
+      <GoogleAnalytics gaId={"G-5N2DQYCYMJ"} />
     </div>
   );
 }

@@ -588,6 +588,51 @@ export type PostQueryResult = {
     } | null;
   } | null;
 } | null;
+// Variable: allPostsQuery
+// Query: *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {    _id,    _type,    _createdAt,    _updatedAt,    title,    slug,    excerpt,    coverImage,    date,    author->,    categories[]->  }
+export type AllPostsQueryResult = Array<{
+  _id: string;
+  _type: "post";
+  _createdAt: string;
+  _updatedAt: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  date: string | null;
+  author: {
+    _id: string;
+    _type: "author";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name?: string;
+    picture?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+  } | null;
+  categories: null;
+}>;
 
 // Source: ./app/(blog)/posts/[slug]/page.tsx
 // Variable: postSlugs
@@ -604,6 +649,7 @@ declare module "@sanity/client" {
     "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {\n    content,\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  excerpt,\n  coverImage,\n  \"date\": coalesce(date, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n\n  }\n": HeroQueryResult;
     "\n  *[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  excerpt,\n  coverImage,\n  \"date\": coalesce(date, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n\n  }\n": MoreStoriesQueryResult;
     "\n  *[_type == \"post\" && slug.current == $slug] [0] {\n    content,\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  excerpt,\n  coverImage,\n  \"date\": coalesce(date, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n\n  }\n": PostQueryResult;
+    "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    _id,\n    _type,\n    _createdAt,\n    _updatedAt,\n    title,\n    slug,\n    excerpt,\n    coverImage,\n    date,\n    author->,\n    categories[]->\n  }\n": AllPostsQueryResult;
     "*[_type == \"post\" && defined(slug.current)]{\"slug\": slug.current}": PostSlugsResult;
   }
 }

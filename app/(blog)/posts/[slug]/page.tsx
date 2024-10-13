@@ -16,6 +16,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { postQuery, settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAdsense from "../../google-adsense";
 
 type Props = {
   params: { slug: string };
@@ -109,6 +110,7 @@ export default async function PostPage({ params }: Props) {
         </Suspense>
       </aside>
       <GoogleAnalytics gaId={"G-5N2DQYCYMJ"} />
+      <GoogleAdsense pId="3825617756167561" />
     </div>
   );
 }

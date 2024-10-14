@@ -5,14 +5,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "Googlebot",
-        allow: ["/"],
-        disallow: "/private/",
+
+        disallow: "/studio",
       },
       {
         userAgent: ["Applebot", "Bingbot"],
-        disallow: ["/"],
+        disallow: ["/studio"],
       },
     ],
-    sitemap: "https://acme.com/sitemap.xml",
+    sitemap: "https://pawfectdaily.com/sitemap.xml",
   };
 }

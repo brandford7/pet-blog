@@ -2,7 +2,6 @@ import { allPostsQuery } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client"; // Adjust this import based on your Sanity client setup
 import { MetadataRoute } from "next";
 
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://pawfectdaily.com"; // Replace with your actual website URL
 

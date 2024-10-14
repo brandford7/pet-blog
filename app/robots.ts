@@ -4,14 +4,16 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "Googlebot",
-
+        userAgent: "*",
+        allow: "/",
         disallow: "/studio",
       },
-      {
-        userAgent: ["Applebot", "Bingbot"],
-        disallow: ["/studio"],
-      },
+      // You can add more specific rules for different user agents if needed
+      // {
+      //   userAgent: "Googlebot",
+      //   allow: "/",
+      //   disallow: "/private/",
+      // },
     ],
     sitemap: "https://pawfectdaily.com/sitemap.xml",
   };

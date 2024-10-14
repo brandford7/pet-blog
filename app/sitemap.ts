@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/${post.slug?.current}`,
     lastModified: new Date(post._updatedAt),
   }));
-  //console.log(posts);
+  
 
   // Combine static and dynamic routes
   return [...staticRoutes, ...postRoutes];

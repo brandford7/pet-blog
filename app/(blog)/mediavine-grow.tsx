@@ -1,5 +1,7 @@
 import Script from "next/script";
 
+/*import Script from "next/script";
+
 const GrowScript = () => {
   return (
     <Script
@@ -24,3 +26,23 @@ const GrowScript = () => {
 };
 
 export default GrowScript;
+*/
+export default function GrowScript() {
+  return (
+    <>
+      <Script
+        id="grow-script"
+        strategy="afterInteractive"
+        src="https://faves.grow.me/main.js"
+        data-grow-faves-site-id="U2l0ZTphZGQzM2EyZS00OWJjLTQzMzctOGNkOS03NGIxY2M4ZDg2ZTM="
+      />
+      <Script id="grow-init" strategy="afterInteractive">
+        {`
+          window.growMe = window.growMe || function(e) {
+            (window.growMe._ = window.growMe._ || []).push(e);
+          };
+        `}
+      </Script>
+    </>
+  );
+}

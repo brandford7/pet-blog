@@ -4,7 +4,7 @@ const GrowScript = () => {
   return (
     <Script
       id="grow-script"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       data-grow-initializer=""
       dangerouslySetInnerHTML={{
         __html: `!(function(){

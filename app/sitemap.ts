@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Generate dynamic routes for posts
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${baseUrl}/${post.slug?.current}`,
+    url: `${baseUrl}/posts/${post.slug?.current}`,
     lastModified: new Date(post._updatedAt),
   }));
   

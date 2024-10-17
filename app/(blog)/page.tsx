@@ -15,6 +15,7 @@ import { heroQuery, settingsQuery } from "@/sanity/lib/queries";
 import CustomPortableText from "./custom-portable";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAdsense from "./google-adsense";
+import GrowScript from "./mediavine-grow";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -118,6 +119,7 @@ export default async function Page() {
       )}
       <GoogleAnalytics gaId={"G-5N2DQYCYMJ"} />
       <GoogleAdsense pId="3825617756167561" />
+      <GrowScript />
     </div>
   );
 }

@@ -3,8 +3,8 @@ import Script from "next/script";
 const GrowScript = () => {
   return (
     <Script
+      type="text/javascript"
       id="grow-script"
-      strategy="afterInteractive"
       data-grow-initializer=""
       dangerouslySetInnerHTML={{
         __html: `!(function(){

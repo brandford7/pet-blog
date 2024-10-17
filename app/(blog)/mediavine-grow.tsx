@@ -15,7 +15,7 @@ const GrowScript = () => {
         (e.type="text/javascript"),
         (e.src="https://faves.grow.me/main.js"),
         (e.defer=!0),
-        e.setAttribute("data-grow-faves-site-id","U2l0ZTphZGQzM2EyZS00OWJjLTQzMzctOGNkOS03NGIxY2M4ZDg2ZTM=");
+        e.setAttribute("data-grow-faves-site-id","U2l0ZTo5NWQzZjFhYi1jYjYzLTQ0NWQtYTVmOC1mNWEyYmU5OGVmOGQ=");
         var t=document.getElementsByTagName("script")[0];
         t.parentNode.insertBefore(e,t);})();`,
       }}

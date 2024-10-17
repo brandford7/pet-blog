@@ -18,6 +18,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import GrowScript from "./mediavine-grow";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -112,7 +113,7 @@ export default function RootLayout({
         </section>
         {draftMode().isEnabled && <VisualEditing />}
         <SpeedInsights />
-        
+        <GrowScript />
       </body>
     </html>
   );

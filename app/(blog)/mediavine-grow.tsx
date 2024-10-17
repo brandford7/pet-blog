@@ -15,7 +15,7 @@ const GrowScript = () => {
         e.type = "text/javascript";
         e.src = "https://faves.grow.me/main.js";
         e.defer = true;
-        e.setAttribute("data-grow-faves-site-id", "U2l0ZTphZGQzM2EyZS00OWJjLTQzMzctOGNkOS03NGIxY2M4ZDg2ZTM");
+        e.setAttribute("data-grow-faves-site-id", "U2l0ZTphZGQzM2EyZS00OWJjLTQzMzctOGNkOS03NGIxY2M4ZDg2ZTM=");
         
         var t = document.getElementsByTagName("script")[0];
         t.parentNode.insertBefore(e, t);

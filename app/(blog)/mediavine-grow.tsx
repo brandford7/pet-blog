@@ -5,6 +5,7 @@ const GrowScript = () => {
     <Script
       type="text/javascript"
       id="grow-script"
+      strategy="beforeInteractive"
       data-grow-initializer=""
       dangerouslySetInnerHTML={{
         __html: `!(function(){

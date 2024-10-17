@@ -7,6 +7,7 @@ export default function GrowScript() {
     <Script
       id="grow-script"
       strategy="afterInteractive"
+      data-grow-initializer=""
       dangerouslySetInnerHTML={{
         __html: `
           !(function () {
@@ -14,7 +15,7 @@ export default function GrowScript() {
             var e = document.createElement("script");
             e.type = "text/javascript";
             e.src = "https://faves.grow.me/main.js";
-            e.defer = true;
+            e.defer = false;
             e.setAttribute("data-grow-faves-site-id", "U2l0ZTo5NWQzZjFhYi1jYjYzLTQ0NWQtYTVmOC1mNWEyYmU5OGVmOGQ=");
             var t = document.getElementsByTagName("script")[0];
             t.parentNode.insertBefore(e, t);

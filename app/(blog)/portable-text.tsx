@@ -19,7 +19,7 @@ export default function CustomPortableText({
   value,
 }: {
   className?: string;
-  value: PortableTextBlock[];
+  value: PortableTextBlock[] ;
 }) {
   const components: PortableTextComponents = {
     block: {

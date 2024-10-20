@@ -103,8 +103,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
-      <GrowScript />
       <body>
+        <GrowScript />
         <section className="min-h-screen">
           {draftMode().isEnabled && <AlertBanner />}
           <main>{children}</main>

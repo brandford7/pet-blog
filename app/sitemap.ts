@@ -1,44 +1,29 @@
 import { allPostsQuery } from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client"; // Adjust this import based on your Sanity client setup
+import { client } from "@/sanity/lib/client";
 import { MetadataRoute } from "next";
 
-type ExtendedSitemapEntry = MetadataRoute.Sitemap[number] & {
-  changeFrequency?:
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
-};
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://pawfectdaily.com"; // Replace with your actual website URL
+  const baseUrl = "https://www.pawfectdaily.com"; // Updated to include www
 
-  // Define static routes
-  const staticRoutes: MetadataRoute.Sitemap = [
+  // Fetch all posts
+  const posts = await client.fetch(allPostsQuery);
+
+  // Generate routes for posts
+  const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${baseUrl}/posts/${post.slug.current}`,
+    lastModified: new Date(post._updatedAt),
+    changeFrequency: "daily",
+    priority: 0.7,
+  }));
+
+  // Combine with static routes
+  return [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "daily",
+      priority: 1.0,
     },
-    /*{
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-    },*/
-    // Add more static routes as needed
+    ...postRoutes,
   ];
-
-  // Fetch all posts using the allPostsQuery
-  const posts = await client.fetch(allPostsQuery);
-
-  // Generate dynamic routes for posts
-  const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${baseUrl}/posts/${post.slug?.current}`,
-    lastModified: new Date(post._updatedAt),
-    changeFrequency: "daily",
-  }));
-
-  // Combine static and dynamic routes
-  return [...staticRoutes, ...postRoutes];
 }

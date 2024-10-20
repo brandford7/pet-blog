@@ -19,7 +19,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import GrowScript from "./mediavine-grow";
-
+import Script from "next/script";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await sanityFetch({
@@ -104,7 +104,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
-        <script
+        <Script
+          id="grow-script"
+          strategy="lazyOnload"
           data-grow-initializer=""
           dangerouslySetInnerHTML={{
             __html: `

@@ -1,6 +1,10 @@
+import Script from "next/script";
+
 export default function GrowMeScript() {
   return (
-    <script
+    <Script
+      id="grow-script"
+      strategy="lazyOnload"
       data-grow-initializer=""
       dangerouslySetInnerHTML={{
         __html: `

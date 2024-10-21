@@ -3,24 +3,22 @@ import React from "react";
 
 const HydroAds = () => {
   return (
-    <>
+    <div>
       <Script
-        id="hydro-tracking"
-        strategy="beforeInteractive"
+        id="hydro_config"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
-          window.Hydro_tagId = "bd50ff4d-4a65-4a09-be2c-a707e30fb646";
-          (function(h,y,d,r,o){
-            h[d]=h[d]||function(){(h[d].q=h[d].q||[]).push(arguments)};
-            var s=y.createElement('script');
-            s.async=1;
-            s.src='https://track.hydro.online/';
-            y.head.appendChild(s);
-          })(window,document,'Hydro');
-        `,
+            window.Hydro_tagId = "bd50ff4d-4a65-4a09-be2c-a707e30fb646";
+          `,
         }}
       />
-    </>
+      <Script
+        id="hydro_script"
+        strategy="lazyOnload"
+        src="https://track.hydro.online/"
+      />
+    </div>
   );
 };
 

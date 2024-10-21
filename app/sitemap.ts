@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.pawfectdaily.com"; // Updated to include www
+  const baseUrl = "https://www.pawfectdaily.com"; 
 
   // Fetch all posts
   const posts = await client.fetch(allPostsQuery);

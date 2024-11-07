@@ -32,13 +32,7 @@ function Intro(props: { title: string | null | undefined; description: any }) {
           
           Welcome to Pawfect Daily – Your Ultimate Dog Companion Hub!
         </p>
-        {/*  
-        //original
-        <PortableText
-          className="prose-lg"
-          value={description?.length ? description : demo.description}
-        />
-       */}
+       
       </h2>
     </section>
   );

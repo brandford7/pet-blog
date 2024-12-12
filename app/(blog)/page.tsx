@@ -30,9 +30,15 @@ function Intro(props: { title: string | null | undefined; description: any }) {
       <h2 className="text-pretty mt-5 text-center text-lg lg:pl-8 lg:text-left">
         <p className="prose-lg">
           
-          Welcome to Pawfect Daily – Your Ultimate Dog Companion Hub!
+          Welcome to Pawfect Daily – Your Ultimate Dog Companion Hub
         </p>
-       
+        {/*  
+        //original
+        <PortableText
+          className="prose-lg"
+          value={description?.length ? description : demo.description}
+        />
+       */}
       </h2>
     </section>
   );

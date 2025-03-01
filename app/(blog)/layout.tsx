@@ -19,6 +19,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import GrowScript from "./mediavine-grow";
+import GoogleAdsense from "./google-adsense";
 
 
 
@@ -106,7 +107,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
         <GrowScript />
-        
+        <GoogleAdsense pId="3825617756167561" />
         <section className="min-h-screen">
           {draftMode().isEnabled && <AlertBanner />}
           <main>{children}</main>
